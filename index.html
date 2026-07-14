@@ -110,6 +110,8 @@
 
 <form
     id="booking-form"
+    action="https://formspree.io/f/xgogvngl"
+    method="POST"
     class="bg-white/10 backdrop-blur p-10 rounded-3xl space-y-8"
 >
 
@@ -315,61 +317,48 @@
 
 
     <script>
+    // Snow animation
+    function createSnowflake() {
+        const snowflakesContainer =
+            document.getElementById('snowflakes');
 
-        // Snow
-
-        function createSnowflake() {
-
-            const snow = document.createElement('div');
-
-            snow.className = 'snowflake';
-
-            snow.textContent = Math.random() > 0.5 ? '❄' : '❅';
-
-            snow.style.left = Math.random() * 100 + 'vw';
-
-            snow.style.animationDuration = (Math.random() * 8 + 8) + 's';
-
-            document.getElementById('snowflakes').appendChild(snow);
-
-            setTimeout(() => snow.remove(), 25000);
-
+        if (!snowflakesContainer) {
+            return;
         }
 
-        setInterval(createSnowflake, 150);
+        const snow = document.createElement('div');
 
+        snow.className = 'snowflake';
+        snow.textContent = Math.random() > 0.5 ? '❄' : '❅';
+        snow.style.left = Math.random() * 100 + 'vw';
+        snow.style.animationDuration =
+            Math.random() * 8 + 8 + 's';
 
+        snowflakesContainer.appendChild(snow);
 
-       
+        setTimeout(() => {
+            snow.remove();
+        }, 25000);
+    }
 
-   <script>
-    window.formspree =
-        window.formspree ||
-        function () {
-            (formspree.q = formspree.q || []).push(arguments);
-        };
+    setInterval(createSnowflake, 150);
 
-    formspree('initForm', {
-        formElement: '#booking-form',
-        formId: 'xgogvngl'
-    });
-</script>
+    // Prevent selection of past dates
+    const eventDateField =
+        document.getElementById('event-date');
 
-<script
-    src="https://unpkg.com/@formspree/ajax@1"
-    defer
-></script>
-    <script>
-    const eventDateField = document.getElementById('event-date');
+    if (eventDateField) {
+        const today = new Date();
 
-    const today = new Date();
-    const localDate = new Date(
-        today.getTime() - today.getTimezoneOffset() * 60000
-    )
-        .toISOString()
-        .split('T')[0];
+        const localDate = new Date(
+            today.getTime() -
+            today.getTimezoneOffset() * 60000
+        )
+            .toISOString()
+            .split('T')[0];
 
-    eventDateField.min = localDate;
+        eventDateField.min = localDate;
+    }
 </script>
 
 </body>
