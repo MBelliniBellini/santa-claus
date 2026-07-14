@@ -94,19 +94,181 @@
 
             <h2 class="christmas-font text-6xl text-center mb-12">Book Your Santa Visit</h2>
 
-            <div
-    data-fs-success
-    class="hidden bg-green-700 border border-green-300 p-6 rounded-2xl mb-6 text-center text-xl"
+           <form
+    id="booking-form"
+    action="https://formspree.io/f/xgogvngl"
+    method="POST"
+    class="bg-white/10 backdrop-blur p-10 rounded-3xl space-y-8"
 >
-    Thank you. Your booking inquiry has been sent. Santa Savvy will contact you to confirm availability and pricing.
-</div>
 
-<div
-    data-fs-error
-    class="hidden bg-red-700 border border-red-300 p-6 rounded-2xl mb-6 text-center"
->
-    The inquiry could not be sent. Please check the information and try again.
-</div>
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+            <label for="name" class="block mb-2 font-bold">
+                Your Name
+            </label>
+
+            <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="Your Name"
+                required
+                autocomplete="name"
+                class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+        <div>
+            <label for="email" class="block mb-2 font-bold">
+                Email Address
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Address"
+                required
+                autocomplete="email"
+                class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+            <label for="phone" class="block mb-2 font-bold">
+                Telephone Number
+            </label>
+
+            <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="Telephone Number"
+                required
+                autocomplete="tel"
+                class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+        <div>
+            <label for="event-date" class="block mb-2 font-bold">
+                Event Date
+            </label>
+
+            <input
+                type="date"
+                id="event-date"
+                name="event_date"
+                required
+                class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6">
+
+        <div>
+            <label for="start-time" class="block mb-2 font-bold">
+                Start Time
+            </label>
+
+            <input
+                type="time"
+                id="start-time"
+                name="start_time"
+                required
+                class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+        <div>
+            <label for="end-time" class="block mb-2 font-bold">
+                End Time
+            </label>
+
+            <input
+                type="time"
+                id="end-time"
+                name="end_time"
+                required
+                class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
+            >
+        </div>
+
+    </div>
+
+    <div>
+        <label for="event-type" class="block mb-2 font-bold">
+            Type of Appearance
+        </label>
+
+        <select
+            id="event-type"
+            name="event_type"
+            required
+            class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
+        >
+            <option value="">Select an appearance</option>
+            <option value="Home Visit">Home Visit</option>
+            <option value="Corporate Event">Corporate Event</option>
+            <option value="Community Event">Community Event</option>
+            <option value="Photography Event">Photography Event</option>
+            <option value="Christmas Party">Christmas Party</option>
+            <option value="Storytelling Appearance">
+                Storytelling Appearance
+            </option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="location" class="block mb-2 font-bold">
+            Event Location
+        </label>
+
+        <input
+            type="text"
+            id="location"
+            name="event_location"
+            placeholder="City and event location"
+            required
+            autocomplete="street-address"
+            class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
+        >
+    </div>
+
+    <div>
+        <label for="details" class="block mb-2 font-bold">
+            Event Details
+        </label>
+
+        <textarea
+            id="details"
+            name="event_details"
+            rows="5"
+            placeholder="Number of guests, ages of children, requested activities, and anything else Santa should know"
+            class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
+        ></textarea>
+    </div>
+
+    <button
+        type="submit"
+        class="w-full bg-red-600 hover:bg-red-500 py-8 text-3xl font-bold rounded-3xl"
+    >
+        SUBMIT BOOKING INQUIRY
+    </button>
+
+    <p class="text-center text-sm text-green-100">
+        Submission does not guarantee availability. Your appearance is confirmed only after you receive written approval.
+    </p>
+
+</form>
 
 <form
     id="booking-form"
@@ -134,11 +296,11 @@
                 name="name"
                 placeholder="Your Name"
                 required
-                data-fs-field
+                
                 class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
             >
 
-            <span data-fs-error="name" class="text-red-300"></span>
+            <span ="name" class="text-red-300"></span>
         </div>
 
         <div>
@@ -152,11 +314,11 @@
                 name="email"
                 placeholder="Email Address"
                 required
-                data-fs-field
+                
                 class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
             >
 
-            <span data-fs-error="email" class="text-red-300"></span>
+            <span ="email" class="text-red-300"></span>
         </div>
 
     </div>
@@ -174,11 +336,11 @@
                 name="phone"
                 placeholder="Telephone Number"
                 required
-                data-fs-field
+                
                 class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
             >
 
-            <span data-fs-error="phone" class="text-red-300"></span>
+            <span ="phone" class="text-red-300"></span>
         </div>
 
         <div>
@@ -191,11 +353,11 @@
                 id="event-date"
                 name="event_date"
                 required
-                data-fs-field
+                
                 class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
             >
 
-            <span data-fs-error="event_date" class="text-red-300"></span>
+            <span ="event_date" class="text-red-300"></span>
         </div>
 
     </div>
@@ -212,7 +374,7 @@
                 id="start-time"
                 name="start_time"
                 required
-                data-fs-field
+                
                 class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
             >
         </div>
@@ -227,7 +389,7 @@
                 id="end-time"
                 name="end_time"
                 required
-                data-fs-field
+                
                 class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
             >
         </div>
@@ -243,7 +405,7 @@
             id="event-type"
             name="event_type"
             required
-            data-fs-field
+            
             class="w-full bg-red-950 border border-green-600 p-6 rounded-3xl text-lg"
         >
             <option value="">Select an appearance</option>
@@ -268,7 +430,7 @@
             name="event_location"
             placeholder="City and event location"
             required
-            data-fs-field
+            
             class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
         >
     </div>
@@ -283,14 +445,14 @@
             name="event_details"
             rows="5"
             placeholder="Number of guests, ages of children, requested activities, and anything else Santa should know"
-            data-fs-field
+            
             class="w-full bg-transparent border border-green-600 p-6 rounded-3xl text-lg"
         ></textarea>
     </div>
 
     <button
         type="submit"
-        data-fs-submit-btn
+        
         class="w-full bg-red-600 hover:bg-red-500 py-8 text-3xl font-bold rounded-3xl disabled:opacity-50"
     >
         SUBMIT BOOKING INQUIRY
@@ -319,10 +481,9 @@
     <script>
     // Snow animation
     function createSnowflake() {
-        const snowflakesContainer =
-            document.getElementById('snowflakes');
+        const container = document.getElementById('snowflakes');
 
-        if (!snowflakesContainer) {
+        if (!container) {
             return;
         }
 
@@ -334,16 +495,16 @@
         snow.style.animationDuration =
             Math.random() * 8 + 8 + 's';
 
-        snowflakesContainer.appendChild(snow);
+        container.appendChild(snow);
 
-        setTimeout(() => {
+        setTimeout(function () {
             snow.remove();
         }, 25000);
     }
 
     setInterval(createSnowflake, 150);
 
-    // Prevent selection of past dates
+    // Prevent users from selecting past dates
     const eventDateField =
         document.getElementById('event-date');
 
