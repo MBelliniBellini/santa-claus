@@ -83,48 +83,131 @@
 
     <!-- Navigation -->
 
-    <nav class="bg-red-900 border-b border-green-600 py-5 sticky top-0 z-50">
+<nav class="bg-red-900 border-b border-green-600 sticky top-0 z-50">
 
-        <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
 
-            <div class="flex items-center">
+        <!-- Main navigation row -->
 
-    <img
-        src="/Santa-Savvy-Logo.PNG"
-        alt="Santa Savvy"
-        class="h-20 w-auto object-contain"
-    >
+        <div class="flex justify-between items-center py-3">
 
-</div>
+            <!-- Logo -->
 
-            <div class="hidden md:flex gap-8 text-lg items-center">
+            <a href="#home" class="flex-shrink-0">
 
-    <a href="#home" class="hover:text-green-300">
-        Home
-    </a>
+                <img
+                    src="/Santa-Savvy-Logo.PNG"
+                    alt="Santa Savvy"
+                    class="h-14 sm:h-16 lg:h-20 w-auto max-w-[180px] object-contain"
+                >
 
-    <a href="#gallery" class="hover:text-green-300">
-        Gallery
-    </a>
+            </a>
 
-    <a href="#book" class="hover:text-green-300">
-        Book Now
-    </a>
+            <!-- Desktop navigation -->
 
-    <a
-        href="https://www.facebook.com/profile.php?id=61553843987840"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="hover:text-blue-300 flex items-center gap-2"
-        aria-label="Visit Santa Savvy on Facebook"
-    >
-        <i class="fa-brands fa-facebook-f"></i>
-        Facebook
-    </a>
+            <div class="hidden md:flex items-center gap-4 lg:gap-8 text-base lg:text-lg">
 
-</div>
+                <a href="#home" class="hover:text-green-300">
+                    Home
+                </a>
 
-    </nav>
+                <a href="#gallery" class="hover:text-green-300">
+                    Gallery
+                </a>
+
+                <a href="#book" class="hover:text-green-300">
+                    Book Now
+                </a>
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61553843987840"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:text-blue-300 flex items-center gap-2"
+                    aria-label="Visit Santa Savvy on Facebook"
+                >
+                    <i class="fa-brands fa-facebook-f"></i>
+                    Facebook
+                </a>
+
+                <a
+                    href="#book"
+                    class="bg-green-600 hover:bg-green-500 px-5 lg:px-7 py-3 rounded-full font-bold whitespace-nowrap"
+                >
+                    BOOK SANTA
+                </a>
+
+            </div>
+
+            <!-- Mobile menu button -->
+
+            <button
+                id="mobile-menu-button"
+                type="button"
+                class="md:hidden text-white text-3xl p-3"
+                aria-label="Open navigation menu"
+                aria-expanded="false"
+                aria-controls="mobile-menu"
+            >
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+        </div>
+
+        <!-- Mobile navigation -->
+
+        <div
+            id="mobile-menu"
+            class="hidden md:hidden border-t border-green-700 pb-5"
+        >
+
+            <div class="flex flex-col text-center text-lg font-bold">
+
+                <a
+                    href="#home"
+                    class="py-4 border-b border-red-800 hover:bg-red-800"
+                >
+                    Home
+                </a>
+
+                <a
+                    href="#gallery"
+                    class="py-4 border-b border-red-800 hover:bg-red-800"
+                >
+                    Gallery
+                </a>
+
+                <a
+                    href="#book"
+                    class="py-4 border-b border-red-800 hover:bg-red-800"
+                >
+                    Book Now
+                </a>
+
+                <a
+                    href="https://www.facebook.com/profile.php?id=61553843987840"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="py-4 border-b border-red-800 hover:bg-red-800"
+                >
+                    <i class="fa-brands fa-facebook-f mr-2"></i>
+                    Facebook
+                </a>
+
+                <a
+                    href="#book"
+                    class="bg-green-600 hover:bg-green-500 mt-5 mx-auto px-10 py-4 rounded-full"
+                >
+                    BOOK SANTA
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
 
 
 
@@ -501,6 +584,62 @@
 
 
     <script>
+
+    // Mobile navigation menu
+
+    const mobileMenuButton =
+        document.getElementById('mobile-menu-button');
+
+    const mobileMenu =
+        document.getElementById('mobile-menu');
+
+    if (mobileMenuButton && mobileMenu) {
+
+        mobileMenuButton.addEventListener('click', function () {
+
+            const menuIsHidden =
+                mobileMenu.classList.toggle('hidden');
+
+            mobileMenuButton.setAttribute(
+                'aria-expanded',
+                String(!menuIsHidden)
+            );
+
+            const menuIcon =
+                mobileMenuButton.querySelector('i');
+
+            if (menuIcon) {
+                menuIcon.classList.toggle('fa-bars');
+                menuIcon.classList.toggle('fa-xmark');
+            }
+
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(function (link) {
+
+            link.addEventListener('click', function () {
+
+                mobileMenu.classList.add('hidden');
+                mobileMenuButton.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+                const menuIcon =
+                    mobileMenuButton.querySelector('i');
+
+                if (menuIcon) {
+                    menuIcon.classList.add('fa-bars');
+                    menuIcon.classList.remove('fa-xmark');
+                }
+
+            });
+
+        });
+
+    }
+
+
     // Snow animation
     function createSnowflake() {
         const container = document.getElementById('snowflakes');
