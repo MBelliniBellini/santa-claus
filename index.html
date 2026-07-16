@@ -14,21 +14,68 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <style>
+   <style>
 
-        @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Mountains+of+Christmas:wght@400;700&family=Playfair+Display:wght@400;700&display=swap');
 
-        body { font-family: 'Playfair Display', serif; }
+    body { font-family: 'Playfair Display', serif; }
 
-        .christmas-font { font-family: 'Mountains of Christmas', cursive; }
+    .christmas-font { font-family: 'Mountains of Christmas', cursive; }
 
-        .hero-bg { background-image: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url('https://picsum.photos/id/1015/1920/1080'); background-size: cover; background-position: center; }
+    .hero-bg {
+        background-image:
+            linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+            url('https://picsum.photos/id/1015/1920/1080');
 
-        .snowflake { position: absolute; color: white; font-size: 1.6rem; animation: snowfall 12s linear infinite; opacity: 0.9; }
+        background-size: cover;
+        background-position: center;
+    }
 
-        @keyframes snowfall { 0% { transform: translateY(-100px); } 100% { transform: translateY(100vh); } }
+    .snowflake {
+        position: absolute;
+        color: white;
+        font-size: 1.6rem;
+        animation: snowfall 12s linear infinite;
+        opacity: 0.9;
+    }
 
-    </style>
+    @keyframes snowfall {
+        0% {
+            transform: translateY(-100px);
+        }
+
+        100% {
+            transform: translateY(100vh);
+        }
+    }
+
+    .gallery-bg {
+        background-color: #123524;
+
+        background-image:
+            radial-gradient(
+                circle at 20px 20px,
+                rgba(255,255,255,0.16) 2px,
+                transparent 3px
+            ),
+            radial-gradient(
+                circle at 60px 60px,
+                rgba(197,162,83,0.16) 2px,
+                transparent 3px
+            ),
+            linear-gradient(
+                135deg,
+                #0f2f20,
+                #721c24
+            );
+
+        background-size:
+            80px 80px,
+            80px 80px,
+            cover;
+    }
+
+</style>
 
 </head>
 
